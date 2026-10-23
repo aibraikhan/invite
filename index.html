@@ -98,9 +98,22 @@
       <!-- СОЛ ЖАҚ: БАСТЫ КАРТОЧКА (HERO & JUBILEE BADGE) -->
       <aside class="sticky-sidebar">
         <div class="card-hero">
-          <!-- 3D Алтын "60 жас МЕРЕЙТОЙҒА ШАҚЫРУ" эмблемасы (IMAGE 2) -->
-          <div class="hero-jubilee-badge-wrap">
-            <img src="assets/images/jubilee-60-gold.png" alt="60 жас Мерейтойға шақыру" class="hero-jubilee-badge-img">
+          <!-- Алтын Шаңырақ эмблемасы -->
+          <div class="hero-shanyrak-wrap">
+            <img src="assets/ornaments/shanyrak-emblem.svg" class="hero-shanyrak-icon" alt="Шаңырақ">
+          </div>
+
+          <!-- 60 ЖАС МЕРЕЙТОЙҒА ШАҚЫРУ (Векторлық біздің стильдегі типографика) -->
+          <div class="jubilee-hero-badge">
+            <div class="jubilee-num-box">
+              <span class="jubilee-num">60</span>
+            </div>
+            <div class="jubilee-script-box">
+              <span class="jubilee-script">жас</span>
+            </div>
+            <div class="jubilee-tagline-box">
+              <span class="jubilee-tagline">МЕРЕЙТОЙҒА ШАҚЫРУ</span>
+            </div>
           </div>
 
           <div class="hero-celebrant-wrap">
@@ -282,17 +295,28 @@
           </div>
         </section>
 
-        <!-- КАРТОЧКА: ТОЙ СӘТТЕРІ (MOMENTS — IMAGE 3) -->
+        <!-- КАРТОЧКА: ТОЙ СӘТТЕРІ (MOMENTS — БІЗДІҢ СТИЛЬДЕ) -->
         <section class="section-card moments-card" id="momentsSection">
-          <div class="moments-top-brand">Moments</div>
-          <span class="moments-subbadge">СІЗДІҢ СӘТІҢІЗ АЛДА</span>
+          <div class="card-header-center">
+            <span class="moments-top-badge">ТОЙ ЕСТЕЛІКТЕРІ • MOMENTS</span>
+            <h3 class="moments-title">Сіздің қуанышыңыз — қонақтардың көзімен ✨</h3>
+            <img src="assets/ornaments/divider-ornament.svg" class="section-divider" alt="">
+          </div>
 
-          <h3 class="moments-title">Сіздің қуанышыңыз — қонақтардың көзімен ✨</h3>
           <p class="moments-desc">
-            Той күні әр қонақ өз түсірген суреттері мен видеоларын ортақ естелік альбомға қоса алады.
+            Құрметті қонақтар! Той барысында түсірген әдемі суреттеріңіз бен видеоларыңызды мерейтойдың ортақ естелік альбомына қоса аласыз.
           </p>
 
-          <!-- Кері санақ (Image 3 стилінде) -->
+          <!-- Құлыптау туралы хабарлама (Той басталғанға дейін) -->
+          <div class="moments-lock-notice" id="momentsLockNotice">
+            <div class="moments-lock-icon">🔒</div>
+            <div class="moments-lock-text">
+              <strong>Альбом қазір жабық.</strong><br>
+              Артық фотолар мен спам жиналмауы үшін, суреттер мен видео жүктеу тек той басталған күні — <strong>16 қаңтар 2027 жыл, сағат 17:00-де</strong> автоматты түрде ашылады!
+            </div>
+          </div>
+
+          <!-- Кері санақ (Альбомның ашылуына дейін) -->
           <div class="moments-countdown-wrap">
             <div class="moments-time-box">
               <div class="moments-time-num" id="momentsDays">00</div>
@@ -312,19 +336,15 @@
             </div>
           </div>
 
-          <!-- Жасырын файл жүктеу тетігі -->
-          <input type="file" id="momentsFileInput" accept="image/*,video/*" multiple style="display: none;">
-
-          <button class="btn-moments-upload" id="btnMomentsUpload" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-              <circle cx="12" cy="13" r="4"></circle>
-            </svg>
-            <span>Фото қосу</span>
+          <!-- Батырма: Той күніне дейін құлыпталған -->
+          <button class="btn-moments-action locked" id="btnMomentsUpload" type="button">
+            <span id="momentsBtnIcon">🔒</span>
+            <span id="momentsBtnText">Фото қосу (16 қаңтарда ашылады)</span>
           </button>
 
-          <!-- Қонақтар жүктеген суреттер галереясы -->
-          <div class="moments-gallery-grid" id="momentsGalleryGrid"></div>
+          <p class="moments-storage-info">
+            Барлық естелік суреттер ортақ бұлттық Google Диск альбомында түпнұсқа сапада сақталады.
+          </p>
         </section>
 
         <!-- КАРТОЧКА 4: ҚАТЫСУДЫ РАСТАУ (RSVP) -->

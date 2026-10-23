@@ -179,62 +179,59 @@ document.addEventListener("DOMContentLoaded", () => {
     if (momentsHours) momentsHours.textContent = pad(h);
     if (momentsMinutes) momentsMinutes.textContent = pad(m);
     if (momentsSeconds) momentsSeconds.textContent = pad(s);
+
+    // Moments альбомының құлыпталуын тексеру
+    checkMomentsLock(difference);
+  };
+
+  const checkMomentsLock = (diff) => {
+    const btn = document.getElementById("btnMomentsUpload");
+    const icon = document.getElementById("momentsBtnIcon");
+    const text = document.getElementById("momentsBtnText");
+    const notice = document.getElementById("momentsLockNotice");
+
+    if (!btn) return;
+
+    if (diff <= 0) {
+      // Той басталды — альбом автоматты түрде ашылады!
+      btn.classList.remove("locked");
+      btn.classList.add("unlocked");
+      if (icon) icon.textContent = "📷";
+      if (text) text.textContent = "Ортақ альбомға фото қосу";
+      if (notice) notice.style.display = "none";
+    } else {
+      // Той басталғанға дейін — құлыптаулы
+      btn.classList.add("locked");
+      btn.classList.remove("unlocked");
+      if (icon) icon.textContent = "🔒";
+      if (text) text.textContent = "Фото қосу (16 қаңтарда ашылады)";
+      if (notice) notice.style.display = "flex";
+    }
   };
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // 5. ТОЙ СӘТТЕРІ (MOMENTS) ФОТО ҚОСУ
+  // 5. ТОЙ СӘТТЕРІ (MOMENTS) БАТЫРМАСЫ
   const btnMomentsUpload = document.getElementById("btnMomentsUpload");
-  const momentsFileInput = document.getElementById("momentsFileInput");
-  const momentsGalleryGrid = document.getElementById("momentsGalleryGrid");
 
-  const loadSavedMoments = () => {
-    if (!momentsGalleryGrid) return;
-    const saved = JSON.parse(localStorage.getItem("jubilee_moments_photos") || "[]");
-    momentsGalleryGrid.innerHTML = saved.map(src => `
-      <img src="${src}" class="moments-preview-thumb" alt="Той сәті">
-    `).join("");
-  };
-  loadSavedMoments();
-
-  if (btnMomentsUpload && momentsFileInput) {
+  if (btnMomentsUpload) {
     btnMomentsUpload.addEventListener("click", () => {
+      const targetDate = new Date(config.eventDate).getTime();
+      const now = new Date().getTime();
+
+      if (now < targetDate) {
+        // Той күніне дейін құлыптаулы екенін ескертеміз
+        alert("🔒 Құрметті қонақ!\n\nТой сәттерінің фотоальбомы той басталған күні — 16 қаңтар 2027 жылы сағат 17:00-де автоматты түрде ашылады.\n\nСол кезде түсірілген естелік суреттеріңіз бен видеоларыңызды осы жерден ортақ альбомға жүктей аласыз!");
+        return;
+      }
+
+      // Той күні келгенде ортақ Google Диск / Фото сілтемесін ашамыз
       if (config.sharedAlbumUrl && config.sharedAlbumUrl.trim().startsWith("http")) {
         window.open(config.sharedAlbumUrl, "_blank");
       } else {
-        momentsFileInput.click();
+        alert("Ортақ альбом сілтемесі дайындалуда. Мерейтой күні қосылады!");
       }
-    });
-
-    momentsFileInput.addEventListener("change", (e) => {
-      const files = Array.from(e.target.files || []);
-      if (!files.length) return;
-
-      const saved = JSON.parse(localStorage.getItem("jubilee_moments_photos") || "[]");
-
-      files.forEach(file => {
-        if (!file.type.startsWith("image/")) return;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const base64 = event.target.result;
-          if (saved.length < 15) {
-            saved.push(base64);
-            try {
-              localStorage.setItem("jubilee_moments_photos", JSON.stringify(saved));
-            } catch (err) {
-              // quota
-            }
-          }
-          if (momentsGalleryGrid) {
-            const img = document.createElement("img");
-            img.src = base64;
-            img.className = "moments-preview-thumb";
-            momentsGalleryGrid.prepend(img);
-          }
-        };
-        reader.readAsDataURL(file);
-      });
     });
   }
 });
