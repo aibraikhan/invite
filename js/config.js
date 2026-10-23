@@ -36,7 +36,7 @@ window.INVITATION_CONFIG = {
   whatsappNumber: "77073217725",
 
   // Ортақ фотоальбом сілтемесі (Google Photos, Google Drive, Яндекс Диск немесе Telegram)
-  sharedAlbumUrl: "", // Мысалы: "https://photos.app.goo.gl/..." немесе Google Drive папкасы
+  sharedAlbumUrl: "https://drive.google.com/drive/folders/1lVk9UK4TZMdcHqMtv7K6IMMK2IpklcYU?usp=sharing", // Мысалы: "https://photos.app.goo.gl/..." немесе Google Drive папкасы
 
   // Аудиофайл (Фондық әуен): өзіңіздің MP3 файлыңызды assets/audio/music.mp3 қылып салсаңыз болады немесе онлайн сілтеме
   musicUrl: "assets/audio/music.mp3",
