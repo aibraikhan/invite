@@ -932,3 +932,322 @@ body {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   1. ҚАҢТАР 2027 КҮНТІЗБЕСІ (CALENDAR CARD — IMAGE 1)
+   ========================================================================== */
+.calendar-card {
+  background: #FAF5EE;
+  border: 1px solid rgba(110, 38, 35, 0.18);
+  border-radius: var(--radius-md);
+  padding: 26px 20px;
+  box-shadow: 0 6px 20px rgba(90, 70, 40, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.cal-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 6px;
+}
+
+.cal-month {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.2vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #5D201E;
+}
+
+.cal-year {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(26px, 3.2vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #5D201E;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.cal-weekdays span {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7A3633;
+  letter-spacing: 0.05em;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  row-gap: 12px;
+}
+
+.cal-grid span {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #5D201E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+}
+
+.cal-grid span.cal-empty {
+  visibility: hidden;
+}
+
+/* Day 16 target with Hand-drawn heart */
+.cal-grid span.cal-target {
+  position: relative;
+  font-weight: 700;
+  color: #5D201E;
+  z-index: 2;
+}
+
+.cal-target-num {
+  position: relative;
+  z-index: 3;
+}
+
+.cal-heart-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  width: 48px;
+  height: 44px;
+  pointer-events: none;
+  z-index: 2;
+  animation: heartPulse 3s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: translate(-50%, -48%) scale(1); }
+  50% { transform: translate(-50%, -48%) scale(1.08); filter: drop-shadow(0 2px 6px rgba(110, 38, 35, 0.35)); }
+}
+
+.cal-footer {
+  margin-top: 24px;
+}
+
+.cal-time-pill {
+  background: #EFE4D6;
+  border-radius: 12px;
+  border-left: 6px solid #6E2623;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(90, 70, 40, 0.05);
+}
+
+.cal-time-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #5D201E;
+}
+
+.cal-time-val {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #5D201E;
+}
+
+/* ==========================================================================
+   2. 3D АЛТЫН 60 ЖАС МЕРЕЙТОЙ БЭДЖІ (IMAGE 2)
+   ========================================================================== */
+.hero-jubilee-badge-wrap {
+  width: min(280px, 85%);
+  margin: 0 auto 12px;
+  position: relative;
+  filter: drop-shadow(0 8px 18px rgba(184, 134, 11, 0.28));
+  transition: transform 0.4s ease;
+}
+
+.hero-jubilee-badge-wrap:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.hero-jubilee-badge-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-celebrant-wrap {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.hero-celebrant-prefix {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.hero-celebrant-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+/* ==========================================================================
+   3. ТОЙ СӘТТЕРІ • MOMENTS КАРТОЧКАСЫ (IMAGE 3)
+   ========================================================================== */
+.moments-card {
+  background: linear-gradient(180deg, #1A1510 0%, #0E0B08 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 30px rgba(184, 134, 11, 0.12) !important;
+  color: #F8F4EC;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.moments-card::before {
+  border-color: rgba(212, 175, 55, 0.25) !important;
+}
+
+.moments-top-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.moments-subbadge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #DFBE74;
+  margin-bottom: 16px;
+}
+
+.moments-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.moments-desc {
+  font-size: 14px;
+  color: #B8AA98;
+  max-width: 520px;
+  margin: 0 auto 28px;
+  letter-spacing: 0.02em;
+}
+
+.moments-countdown-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.moments-time-box {
+  background: #231D16;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  min-width: 66px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.moments-time-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.moments-time-unit {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #948673;
+  margin-top: 6px;
+}
+
+.btn-moments-upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 36px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: var(--radius-full);
+  color: #F8F4EC;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+.btn-moments-upload:hover {
+  background: linear-gradient(135deg, #DFBE74 0%, #C5A059 100%);
+  color: #1A140A;
+  border-color: #FFF0BD;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45);
+}
+
+.btn-moments-upload svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* User uploaded live previews container */
+.moments-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.moments-preview-thumb {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  animation: fadeIn 0.4s ease;
+}

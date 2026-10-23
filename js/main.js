@@ -168,8 +168,73 @@ document.addEventListener("DOMContentLoaded", () => {
     if (timerHours) timerHours.textContent = pad(h);
     if (timerMinutes) timerMinutes.textContent = pad(m);
     if (timerSeconds) timerSeconds.textContent = pad(s);
+
+    // Moments блогындағы кері санақ
+    const momentsDays = document.getElementById("momentsDays");
+    const momentsHours = document.getElementById("momentsHours");
+    const momentsMinutes = document.getElementById("momentsMinutes");
+    const momentsSeconds = document.getElementById("momentsSeconds");
+
+    if (momentsDays) momentsDays.textContent = pad(d);
+    if (momentsHours) momentsHours.textContent = pad(h);
+    if (momentsMinutes) momentsMinutes.textContent = pad(m);
+    if (momentsSeconds) momentsSeconds.textContent = pad(s);
   };
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // 5. ТОЙ СӘТТЕРІ (MOMENTS) ФОТО ҚОСУ
+  const btnMomentsUpload = document.getElementById("btnMomentsUpload");
+  const momentsFileInput = document.getElementById("momentsFileInput");
+  const momentsGalleryGrid = document.getElementById("momentsGalleryGrid");
+
+  const loadSavedMoments = () => {
+    if (!momentsGalleryGrid) return;
+    const saved = JSON.parse(localStorage.getItem("jubilee_moments_photos") || "[]");
+    momentsGalleryGrid.innerHTML = saved.map(src => `
+      <img src="${src}" class="moments-preview-thumb" alt="Той сәті">
+    `).join("");
+  };
+  loadSavedMoments();
+
+  if (btnMomentsUpload && momentsFileInput) {
+    btnMomentsUpload.addEventListener("click", () => {
+      if (config.sharedAlbumUrl && config.sharedAlbumUrl.trim().startsWith("http")) {
+        window.open(config.sharedAlbumUrl, "_blank");
+      } else {
+        momentsFileInput.click();
+      }
+    });
+
+    momentsFileInput.addEventListener("change", (e) => {
+      const files = Array.from(e.target.files || []);
+      if (!files.length) return;
+
+      const saved = JSON.parse(localStorage.getItem("jubilee_moments_photos") || "[]");
+
+      files.forEach(file => {
+        if (!file.type.startsWith("image/")) return;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const base64 = event.target.result;
+          if (saved.length < 15) {
+            saved.push(base64);
+            try {
+              localStorage.setItem("jubilee_moments_photos", JSON.stringify(saved));
+            } catch (err) {
+              // quota
+            }
+          }
+          if (momentsGalleryGrid) {
+            const img = document.createElement("img");
+            img.src = base64;
+            img.className = "moments-preview-thumb";
+            momentsGalleryGrid.prepend(img);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  }
 });
