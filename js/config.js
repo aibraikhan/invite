@@ -10,7 +10,7 @@ window.INVITATION_CONFIG = {
   hosts: "Эльмар & Алма", // Шақырушылар (Құрметпен...)
 
   // Күні мен уақыты
-  eventDate: "2020-01-01T00:00:00", // ЖЖЖЖ-АА-ККTУУ:ММ:СС (Кері санақ таймері үшін)
+  eventDate: "2027-01-16T17:00:00", // ЖЖЖЖ-АА-ККTУУ:ММ:СС (Кері санақ таймері үшін)
   dateDisplay: "16 қаңтар 2027 жыл", // Көрсетілетін күн
   dayOfWeek: "Сенбі", // Апта күні
   timeDisplay: "17:00", // Басталу уақыты
@@ -36,7 +36,7 @@ window.INVITATION_CONFIG = {
   whatsappNumber: "77073217725",
 
   // Ортақ фотоальбом сілтемесі (Google Photos, Google Drive, Яндекс Диск немесе Telegram)
-  sharedAlbumUrl: "https://drive.google.com/drive/folders/1lVk9UK4TZMdcHqMtv7K6IMMK2IpklcYU?usp=sharing", // Мысалы: "https://photos.app.goo.gl/..." немесе Google Drive папкасы
+  sharedAlbumUrl: "https://photos.app.goo.gl/xZGy4tTWtQS4bWoZ9", // Мысалы: "https://photos.app.goo.gl/..." немесе Google Drive папкасы
 
   // Аудиофайл (Фондық әуен): өзіңіздің MP3 файлыңызды assets/audio/music.mp3 қылып салсаңыз болады немесе онлайн сілтеме
   musicUrl: "assets/audio/music.mp3",
