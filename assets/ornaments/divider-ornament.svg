@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 40" width="100%" height="100%">
+  <defs>
+    <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C5A059" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#C5A059" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#FFF3C4"/>
+      <stop offset="80%" stop-color="#C5A059" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#C5A059" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="goldSolid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059"/>
+      <stop offset="50%" stop-color="#FFF3C4"/>
+      <stop offset="100%" stop-color="#997526"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left horizontal tapering line -->
+  <line x1="20" y1="20" x2="200" y2="20" stroke="url(#divGold)" stroke-width="1.5"/>
+  <circle cx="205" cy="20" r="2" fill="url(#goldSolid)"/>
+
+  <!-- Right horizontal tapering line -->
+  <line x1="300" y1="20" x2="480" y2="20" stroke="url(#divGold)" stroke-width="1.5"/>
+  <circle cx="295" cy="20" r="2" fill="url(#goldSolid)"/>
+
+  <!-- Center Kazakh ornament motif -->
+  <g fill="none" stroke="url(#goldSolid)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center diamond -->
+    <polygon points="250,11 259,20 250,29 241,20" fill="url(#goldSolid)" fill-opacity="0.2"/>
+    <circle cx="250" cy="20" r="2.5" fill="url(#goldSolid)"/>
+
+    <!-- Left curl (Koshqar muiiz wing) -->
+    <path d="M 241 20 C 235 12 225 12 223 18 C 221 23 227 25 229 22 C 231 19 227 17 225 18" />
+    <path d="M 241 20 C 235 28 225 28 223 22 C 221 17 227 15 229 18 C 231 21 227 23 225 22" />
+
+    <!-- Right curl (Koshqar muiiz wing) -->
+    <path d="M 259 20 C 265 12 275 12 277 18 C 279 23 273 25 271 22 C 269 19 273 17 275 18" />
+    <path d="M 259 20 C 265 28 275 28 277 22 C 279 17 273 15 271 18 C 269 21 273 23 275 22" />
+  </g>
+</svg>
